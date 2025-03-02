@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description"
+          content="Embodied Agent in Urban Environment">
+    <meta name="keywords" content="Embodied, Embodied,Benchmark, Agent, GPT-4V">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EmbodiedNav: Spatial Cognition-Aware Embodied Navigation in Urban Spaces with Large Multimodal Model Agent</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=??"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', '???');
+
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+<body>
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">EmbodiedNav: Spatial Cognition-Aware Embodied
+                        Navigation in Urban Spaces with Large Multimodal Model Agent</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-full-width">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Asking an aerial agent to navigate to any location without providing a specific route in an
+                        unseen environment autonomously is one of the fundamental tasks in embodied artificial intelligence.
+                        However, embodied navigation in low-altitude urban spaces is understudied, with aerial agents facing
+                        significant perception and reasoning challenges due to open-ended three-dimensional spaces and partial
+                        observations. To fill this gap, we propose EmbodiedNav, a large multimodal model-empowered agent composed
+                        of three modules: Track^2 Task Decomposition, Perception-Driven Action Generation, and Memory. These
+                        modules are built on spatial cognition: the imagination and associative ability for macro-level spatial
+                        topology, and the acquisition of micro-level spatial positioning through size consistency, viewpoint
+                        invariance, and spatial perspective-taking. Our formulation mimics how humans navigate using only RGB visual
+                        information, without relying on maps, odometers, or depth inputs.
+                        Experimental results demonstrate the potential of our agent in urban aerial embodied navigation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero teaser">
+    <section class="section">
+        <h2 class="title is-3 has-text-centered">Benchmark Setup in City Space</h2>
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column is-full-width">
+                    <p>We provide some video examples to illustrate the task of goal-oriented
+                        vision-language navigation in urban spaces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container is-max-desktop">
+        <div class="columns is-centered">
+            <div class="column is-one-third">
+                <h3 class="title is-5 has-text-centered">Goal: [Nearby bus stop]</h3>
+            </div>
+            <div class="column is-one-third">
+                <h3 class="title is-5 has-text-centered">Goal: [The fresh food shop in the building below]</h3>
+            </div>
+            <div class="column is-one-third">
+                <h3 class="title is-5 has-text-centered">Goal: [The balcony on the 20th floor of the building on the right]</h3>
+            </div>
+        </div>
+        <div class="hero-body" style="display: flex; justify-content: space-between;">
+            <div class="video-container">
+                <video controls autoplay muted>
+                    <source src="./static/videos/v1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-container">
+                <video controls autoplay muted>
+                    <source src="./static/videos/v3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-container">
+                <video controls autoplay muted>
+                    <source src="./static/videos/v4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column is-full-width">
+                    <h3 class="title is-5">Statistic Information:</h3>
+
+                    <li>Number of flight trajectories: 1,089</li>
+                    <li>The average trajectory length is 86.9 meters, with a maximum of 421.5
+                        meters and a minimum of 32.7 meters.
+                    </li>
+                    <li>The average length of instructions is approximately 6.2 words.</li>
+                    <li>The simulator's environment covers a 2.8 km × 2.4 km district in Beijing,
+                        a major city in China. The urban simulation includes about 100 streets and
+                        200 buildings or building complexes, featuring a variety of types such as
+                        office towers, shopping malls, residential complexes, and public facilities.
+                    </li>
+                    <li>The developed instructions further generate diverse cases across different
+                        architectural visual scenarios.
+                    </li>
+                    <div style="text-align: center;">
+                        <img src="./static/images/p6.jpg" width="900"/>
+                    </div>
+                    <li>The distribution of ground truth path lengths in navigation trajectories
+                        and the word cloud of urban elements in navigation instructions are shown as follows.
+                    </li>
+                    <div style="text-align: center;">
+                        <img src="./static/images/p7.jpg" width="700"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-full-width">
+                <h2 class="title is-3">Method</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        The proposed agent consists of three modules. The track^2 task decomposition
+                        module outputs the latest plan and current progress. The perception-driven
+                        action generation module converts steps in the plan into an iterative algorithm,
+                        which outputs the agent's actions. Throughout this process, the RGB observation
+                        and output of each module are updated in the memory module, providing information to other modules.
+                    </p>
+                    <img src="./static/images/p1.jpg"/>
+                    <p>
+                        The design of embodied CoT for the Track^2 Task Decomposition module, mainly including plan
+                        evaluation, perception inference, and route inference. The perception inference and route
+                        inference stages are specifically designed based on spatial imagination and spatial association,
+                        respectively. The resulting plan is better equipped to handle goal-oriented navigation tasks
+                        in urban spaces.
+                    </p>
+                    <img src="./static/images/p2.jpg"/>
+                    <p>
+                        Perception-driven action generation: example of flying around an area of interest while
+                        maintaining a relatively constant distance and ensuring effective camera perception. To
+                        accommodate the LMM, the field of view is divided into a grid to determine the rough
+                        location of the area of interest.
+                    </p>
+                    <div style="text-align: center;">
+                        <img src="./static/images/p3.jpg" width="860"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-full-width">
+                <h2 class="title is-3">Experiment</h2>
+                <div class="content has-text-justified">
+                    <h3 class="title is-5">Overall Performance</h3>
+                    <p>
+                        Embodied navigation results of the proposed EmbodiedNav compared to other baselines.
+                        The short, middle, and long groups correspond to ground truth trajectories of less
+                        than 63.2 meters, between 63.2 meters and 101.7 meters, and greater than 101.7 meters, respectively.
+                    </p>
+                    <div style="text-align: center;">
+                        <img src="./static/images/p4.jpg" width="750"/>
+                    </div>
+                    <h3 class="title is-5">Offline Evaluation in Real City</h3>
+                    <p>
+                        To further validate the effectiveness of our algorithm, we designed a small-batch offline
+                        experiment. Due to the complexity of UAV localization in real urban environments, we
+                        currently lack the hardware capabilities for real-time navigation experiments. We collected
+                        50 goal-oriented navigation videos in Shenzhen, China, using a DJI Mini 4K drone.
+                    </p>
+                    <p>
+                        We select several nodes within each video to examine the action outputs of our method.
+                        Closer human-like actions typically indicate higher navigation success and efficiency,
+                        and single-step decision accuracy should correlate with overall navigation success.
+                        Example is shown as following:
+                    </p>
+                    <figure>
+                        <img src="./static/images/p5.jpg" class="fixed-size-image" alt="Image Description">
+                    </figure>
+                    <div class="columns is-centered">
+                        <div class="column is-one-second">
+                            <h3 class="title is-4 has-text-left">Question 1: Navigation Goal: [A nearby football field]. What action should the drone take?</h3>
+                            <ul>
+                                <li>A. Fly up</li>
+                                <li>B. Rotate to the left</li>
+                                <li>C. Fly downwards</li>
+                                <li>D. Pan tilt angle downwards</li>
+                                <li>E. Fly to the Right</li>
+                            </ul>
+                        </div>
+                        <div class="column is-one-second">
+                            <h3 class="title is-4 has-text-left">Question 2: Navigation Goal: [Entrance of subway station next to the nearby bus stop]. What action should the drone take?</h3>
+                            <ul>
+                                <li>A. Fly downwards</li>
+                                <li>B. Rotate to the left</li>
+                                <li>C. Rotate to the right</li>
+                                <li>D. Pan tilt angle upwards</li>
+                                <li>E. Fly to the Right</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="columns is-centered">
+                        <div class="column is-one-second">
+                            <div class="video-container1">
+                                <video controls autoplay muted>
+                                    <source src="./static/videos/v2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div class="column is-one-second">
+                            <div class="video-container1">
+                                <video controls autoplay muted>
+                                    <source src="./static/videos/v5.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <p>The quantitative results are shown as follows:</p>
+                    <div style="text-align: center;">
+                        <img src="./static/images/p8.jpg" width="320"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-left">
+            <div class="column is-full-width">
+                <h2 class="title is-3 has-text-centered">Conclusion</h2>
+                <p>
+                    This work takes a pioneering step for goal-oriented embodied navigation in urban
+                    spaces. We propose an LMM-empowered agent based on spatial cognition mechanisms to
+                    build its embodied capabilities, which help to overcome the critical challenges in
+                    urban spaces. This agent can achieve promising navigation performance in large urban
+                    spaces relying solely on RGB observations. The experiment results illustrate the
+                    effectiveness of the proposed agent from different perspectives.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
